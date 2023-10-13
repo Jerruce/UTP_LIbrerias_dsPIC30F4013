@@ -1,0 +1,14 @@
+dsPIC30F4013 - ADC: EJEMPLO 05
+
+En este ejemplo se conecta un potenciómetro a la entrada analógica AN0, correspondiente al pin RB0.
+También se conectan 12 LEDs a los pines desde RB1 hasta RB12.
+A medida que se mueva el potenciómetro, los LEDs deben mostrar un número binario que se encuentre en el rango de 0 a 4095.
+
+En este ejemplo se está utilizando la conversión en MODO ACTIVADO POR CONTADOR INTERNO, por lo cual ya no es necesario forzar a '0' el bit SAMP. En este caso, la conversión iniciará automáticamente, cuando haya transcurrido un tiempo de 1TAD desde el momento en que se inicia el muestreo. El tiempo de 1TAD no es aleatorio, sino que nosotros lo
+hemos seleccionado al momento de configurar el adc, en la línea que dice:
+
+my_adc.auto_conversion_counter = ADC_AUTO_CONV_COUNTER_01_TAD; 
+
+Asimismo, en este ejemplo únicamente se está leyendo la entrada AN0. 
+
+Los muestreo se realizan cada 10ms. Este periodo de muestreo se define mediante la configuración del Timer1.
